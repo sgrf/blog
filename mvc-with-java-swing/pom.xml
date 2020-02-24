@@ -1,42 +1,58 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.link_intersystems.blog</groupId>
-		<artifactId>blog-parent</artifactId>
-		<version>1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>com.link_intersystems.blog</groupId>
+        <artifactId>blog-parent</artifactId>
+        <version>1-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>mvc-with-java-swing</artifactId>
-	<version>2-SNAPSHOT</version>
+    <artifactId>mvc-with-java-swing</artifactId>
+    <version>2-SNAPSHOT</version>
 
-	<name>Swing MVC Implementation Example</name>
-	<description>A java swing example application that shows how the MVC pattern can be implemented using java swing.</description>
-	<url>http://www.link-intersystems.com/blog/2013/07/20/the-mvc-pattern-implemented-with-java-swing/</url>
+    <name>Swing MVC Implementation Example</name>
+    <description>A java swing example application that shows how the MVC pattern can be implemented using java swing.</description>
+    <url>http://www.link-intersystems.com/blog/2013/07/20/the-mvc-pattern-implemented-with-java-swing/</url>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>webstart-maven-plugin</artifactId>
-				<version>1.0-beta-3</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jnlp-inline</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<jnlp>
-						<outputFile>SwingMVCExampleApplicaion.jnlp</outputFile>
-						<mainClass>com.link_intersystems.blog.mvc.Main</mainClass>
-					</jnlp>
-					<verbose>true</verbose>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>webstart-maven-plugin</artifactId>
+                    <version>1.0-beta-6</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>keytool-api-1.7</artifactId>
+                            <version>1.4</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>webstart-pack200-impl</artifactId>
+                            <version>1.0-beta-6</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jnlp-inline</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <jnlp>
+                            <outputFile>SwingMVCExampleApplicaion.jnlp</outputFile>
+                            <mainClass>com.link_intersystems.blog.mvc.Main</mainClass>
+                        </jnlp>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
